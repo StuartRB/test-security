@@ -1,0 +1,49 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.3.RELEASE'
+	id 'java'
+}
+
+
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'groovy'
+
+group = 'com.stuart.demo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+ext {
+    superStu = "yes"
+    davidsCup = true
+}
+
+task showProject {
+    group 'Stus'
+    description 'Does awesome things'
+    doLast {
+        println '**************************'
+        println '**  Gradle Project API  **'
+        println '**************************'
+        println 'project: ' + project
+        println 'name: ' + name
+        println 'path: ' + getPath()
+        println 'description: ' + description
+        println 'projectDir: ' + projectDir
+        println 'buildDir: ' + buildDir
+        println 'group: ' + group
+        println 'version: ' + version
+        println 'superStu: ' + project.superStu
+        println 'davidsCup: ' + davidsCup
+        println 'it: ' + it
+    }
+}
