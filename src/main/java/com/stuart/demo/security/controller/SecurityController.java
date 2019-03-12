@@ -20,6 +20,12 @@ public class SecurityController {
         return "Auth endpoint";
     }
 
+    @GetMapping("/signup")
+    public String signUpController() {
+        System.out.println(getPrincipal());
+        return "Signup endpoint";
+    }
+
     private String getPrincipal() {
         String username = "";
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
